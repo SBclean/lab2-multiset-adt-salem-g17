@@ -56,7 +56,24 @@ public class BST {
     }
 
     private void deleteRoot() {
-
+        if (this.left.isEmpty() && this.right.isEmpty()) {
+            this.root = null;
+            this.left = null;
+            this.right = null;
+        }
+        else if (this.left.isEmpty()) {
+            this.root = this.right.root;
+            this.left = this.right.left;
+            this.right = this.right.right;
+        }
+        else if (this.right.isEmpty()) {
+            this.root = this.left.root;
+            this.left = this.left.left;
+            this.right = this.left.right;
+        }
+        else {
+            this.root = this.left.extractMax();
+        }
     }
 
 
