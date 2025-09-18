@@ -61,7 +61,20 @@ public class BST {
 
 
     private int extractMax() {
-        return -1;
+
+        if this.right.isEmpty()
+        {
+            Integer max_item = this.root;
+            Integer tmp = this.left
+            this.root = tmp.root;
+            this.left = tmp.left;
+            this.right = tmp.right;
+            return max_item;
+        }
+        else {
+            return this.right.extractMax();
+        }
+
     }
 
     public int height() {
