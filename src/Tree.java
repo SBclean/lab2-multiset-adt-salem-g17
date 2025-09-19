@@ -49,8 +49,12 @@ public class Tree {
         if (this.isEmpty()) {
             return 0;
         }
+
         else {
             Integer count = 0;
+            if (this.root.equals(item)) {
+                count += 1;
+            }
             for (Tree tree : this.subtrees) {
                 count += tree.count(item);
             }
