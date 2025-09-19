@@ -68,7 +68,7 @@ public class Tree {
             return "Tree()";
         }
         else {
-            return this.str_indented();
+            return this.strIndented();
         }
     }
 
@@ -79,11 +79,11 @@ public class Tree {
      * @param depth The depth of the tree used as a horizontal factor for our visual
      * @return A string showing the hierarchical design of the tree
      */
-    private String str_indented(Integer depth) {
+    private String strIndented(Integer depth) {
         StringBuilder s =  new StringBuilder();
-        s.append(' ' * depth + this.root.toString() + '\n');
+        s.append(' ' * depth).append(this.root.toString()).append('\n');
         for (Tree tree : this.subtrees) {
-            s.append(tree.str_indented(depth + 1));
+            s.append(tree.strIndented(depth + 1));
         }
         return s.toString();
     }
@@ -91,8 +91,8 @@ public class Tree {
     /**
      * @return Same as str_indented, but at the depth of 0, so starting at root
      */
-    private String str_indented() {
-        return this.str_indented(0);
+    private String strIndented() {
+        return this.strIndented(0);
     }
 
     /**
