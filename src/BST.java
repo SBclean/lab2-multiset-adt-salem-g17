@@ -62,10 +62,10 @@ public class BST {
 
     private int extractMax() {
 
-        if this.right.isEmpty()
+        if (this.right.isEmpty())
         {
             Integer max_item = this.root;
-            Integer tmp = this.left
+            BST tmp = this.left;
             this.root = tmp.root;
             this.left = tmp.left;
             this.right = tmp.right;
