@@ -102,7 +102,12 @@ public class BST {
     }
 
     public int getSize() {
-        return -1;
+        if (this.isEmpty()) {
+            return 0;
+        }
+        else {
+            return 1 + len(this.left) + len(this.right);
+        }
     }
 
     public static void main(String[] args) {
