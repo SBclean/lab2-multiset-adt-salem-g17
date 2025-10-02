@@ -89,7 +89,12 @@ public class BST {
     }
 
     public int height() {
-        return -1;
+        if (this.isEmpty()) {
+            return 0;
+        }
+        else {
+            return max(this.left.height(), this.right.height()) + 1;
+        }
     }
 
     public int count(int item) {
