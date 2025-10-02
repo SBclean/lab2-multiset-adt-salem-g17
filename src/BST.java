@@ -47,6 +47,18 @@ public class BST {
 
 
     public void insert(int item) {
+        if (this.isEmpty()) {
+            this.root = item;
+            this.left = new BST(0);
+            this.right = new BST(0);
+        }
+
+        else if (item <= this.root) {
+            this.left.insert(item);
+        }
+        else {
+            this.right.insert(item);
+        }
 
     }
 
