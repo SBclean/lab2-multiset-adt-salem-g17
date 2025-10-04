@@ -8,6 +8,7 @@ public class Tree {
 
     public Tree() {
         this.root = null;
+        this.subtrees = new ArrayList<>();
     }
 
     public Tree(Integer root) {
@@ -299,7 +300,7 @@ public class Tree {
             this.root = null;
         }
         else {
-            Tree chosenSubtree = this.subtrees.getLast();
+            Tree chosenSubtree = this.subtrees.remove(this.subtrees.size() - 1);
             this.subtrees.remove(chosenSubtree);
 
             this.root =  chosenSubtree.root;
@@ -326,14 +327,15 @@ public class Tree {
             this.root = item;
         }
         else if (this.subtrees.isEmpty()) {
+            this.subtrees = new ArrayList<> ();
             this.subtrees.add(new Tree(item));
         }
         else {
-            if ((int)(Math.random() * 3) == 3) {
+            if ((int)(Math.random() * 3) + 1 == 3) {
                 this.subtrees.add(new Tree(item));
             }
             else {
-                int subtreeIndex = (int) (Math.random() *  this.subtrees.size()) - 1;
+                int subtreeIndex = (int) (Math.random() *  this.subtrees.size());
                 this.subtrees.get(subtreeIndex).insert(item);
             }
         }

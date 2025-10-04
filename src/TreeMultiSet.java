@@ -1,8 +1,7 @@
-public class BSTMultiSet extends MultiSet {
+public class TreeMultiSet extends MultiSet {
 
-    // a multiset always starts empty, so we can directly instantiate our private variable
-    // here; no need to explicitly write a new constructor.
-    private final BST bst = new BST();
+    // this Tree object is a private instance variable for this class.
+    private final Tree root = new Tree();
 
     /**
      * Add the given item to this multiset.
@@ -11,7 +10,7 @@ public class BSTMultiSet extends MultiSet {
      */
     @Override
     void add(int item) {
-        this.bst.insert(item);
+        this.root.insert(item);
     }
 
     /**
@@ -22,7 +21,7 @@ public class BSTMultiSet extends MultiSet {
      */
     @Override
     void remove(int item) {
-        this.bst.delete(item);
+        this.root.delete(item);
     }
 
     /**
@@ -33,7 +32,7 @@ public class BSTMultiSet extends MultiSet {
      */
     @Override
     boolean contains(int item) {
-        return this.bst.contains(item);
+        return this.root.contains(item); // implemented a contains method in Tree.java
     }
 
     /**
@@ -41,7 +40,7 @@ public class BSTMultiSet extends MultiSet {
      */
     @Override
     boolean isEmpty() {
-        return this.bst.isEmpty();
+        return this.root.isEmpty();
     }
 
     /**
@@ -52,7 +51,7 @@ public class BSTMultiSet extends MultiSet {
      */
     @Override
     int count(int item) {
-        return this.bst.count(item);
+        return this.root.count(item);
     }
 
     /**
@@ -60,6 +59,6 @@ public class BSTMultiSet extends MultiSet {
      */
     @Override
     int size() {
-        return this.bst.getSize();
+        return this.root.size(); // implemented a getSize method in Tree.java
     }
 }
